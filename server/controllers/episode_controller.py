@@ -20,7 +20,7 @@ class AllEpisodesAPI(Resource):
         response = make_response(
             episodes,
             200,
-            {"Content-Type": "application/JSON"}
+            {"Content-Type": "application/json"}
         )
     
         return response

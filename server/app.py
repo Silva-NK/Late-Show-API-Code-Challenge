@@ -12,7 +12,9 @@ from server.models.episode import Episode
 from server.models.appearance import Appearance
 
 from server.controllers.auth_controller import auth_bp
+from server.controllers.guest_controller import guest_bp
 from server.controllers.episode_controller import episode_bp
+from server.controllers.appearance_controller import appearance_bp
 
 def create_app():
     app = Flask(__name__)
@@ -28,8 +30,9 @@ def create_app():
     
 
     app.register_blueprint(auth_bp, url_prefix="/")
-
     app.register_blueprint(episode_bp, url_prefix="/")
+    app.register_blueprint(guest_bp, url_prefix="/")
+    app.register_blueprint(appearance_bp, url_prefix="/")
 
     return app
 
