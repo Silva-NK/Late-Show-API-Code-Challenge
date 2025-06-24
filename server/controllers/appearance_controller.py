@@ -12,7 +12,7 @@ appearance_bp = Blueprint("appearance", __name__)
 appearance_api = Api(appearance_bp)
 
 class CreateAppearanceAPI(Resource):
-    @jwt_required
+    @jwt_required()
     def post(self):
         data = request.get_json()
         rating = data.get("rating")

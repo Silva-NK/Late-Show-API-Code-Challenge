@@ -7,7 +7,7 @@ from server.extensions import db
 class Appearance(db.Model, SerializerMixin):
     __tablename__ = "appearances"
 
-    serialize_rules = ('-episode', 'guest')
+    serialize_rules = ('-episode.appearances', '-guest.appearances')
 
     id = db.Column(db.Integer, primary_key=True)
     rating = db.Column(db.Integer, nullable=False)

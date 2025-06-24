@@ -42,14 +42,14 @@ class LoginAPI(Resource):
         if not user or not user.check_password(password):
             return {"error": "Invalid credentials"}, 401
         
-        access_token = create_access_token(identity=user.id)
+        access_token = create_access_token(identity=str(user.id))
         return {"access_token": access_token}, 200
     
 
 class ProfileAPI(Resource):
     @jwt_required()
     def get(self):
-        user_id = get_jwt_identity()
+        user_id = int(get_jwt_identity())
         user = User.query.get(user_id)
         return {"id": user.id, "username": user.username}, 200
     
