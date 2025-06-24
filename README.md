@@ -74,6 +74,7 @@ Late Show API is a lightweight RESTful backend built with Flask, SQLAlchemy, and
     JWT_SECRET_KEY=dev-super-secret-key
     JWT_ACCESS_TOKEN_EXPIRES=3600
     ```
+6. Finally to run use `flask run`.
 
 ## Database Migration & Seeding
 
