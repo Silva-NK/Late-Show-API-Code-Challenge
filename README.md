@@ -140,7 +140,7 @@ If you wish to use the Flask shell, use:
    **Success Response (200):**
    ```json
    {
-     "access_token": "eyJhbGciOiJIUzI1NiIsInR..."
+     "access_token": "eyJhbGciOiJIUzI1NiIsI..."
    }
    ```
    **Failure (Invalid credentials):**
@@ -394,7 +394,7 @@ flask run
 Example:
 
 ```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsI...
 ```
 
 > Don't forget to include the word `Bearer` before the token value.
