@@ -1,6 +1,8 @@
+from sqlalchemy_serializer import SerializerMixin
+
 from server.extensions import db
 
-class Guest(db.Model):
+class Guest(db.Model, SerializerMixin):
     __tablename__ = "guests"
 
     id = db.Column(db.Integer, primary_key=True)

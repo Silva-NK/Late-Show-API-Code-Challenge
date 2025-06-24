@@ -1,7 +1,11 @@
+from sqlalchemy_serializer import SerializerMixin
+
 from server.extensions import db
 
-class Episode(db.Model):
+class Episode(db.Model, SerializerMixin):
     __tablename__ = "episodes"
+
+    serialize_rules = ('appearances', '-appearances.episode')
 
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date, nullable=False)

@@ -12,6 +12,7 @@ from server.models.episode import Episode
 from server.models.appearance import Appearance
 
 from server.controllers.auth_controller import auth_bp
+from server.controllers.episode_controller import episode_bp
 
 def create_app():
     app = Flask(__name__)
@@ -21,7 +22,14 @@ def create_app():
     migrate.init_app(app, db)
     jwt.init_app(app)
 
+    @app.route("/")
+    def index():
+        return {"message": "WELCOME TO THE LATE SHOW API!!!"}, 200
+    
+
     app.register_blueprint(auth_bp, url_prefix="/")
+
+    app.register_blueprint(episode_bp, url_prefix="/")
 
     return app
 

@@ -1,10 +1,13 @@
-from server.extensions import db
-
 from sqlalchemy.orm import validates
 from sqlalchemy import CheckConstraint
+from sqlalchemy_serializer import SerializerMixin
 
-class Appearance(db.Model):
+from server.extensions import db
+
+class Appearance(db.Model, SerializerMixin):
     __tablename__ = "appearances"
+
+    serialize_rules = ('-episode', 'guest')
 
     id = db.Column(db.Integer, primary_key=True)
     rating = db.Column(db.Integer, nullable=False)
