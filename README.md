@@ -400,6 +400,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsI...
 
 > Don't forget to include the word `Bearer` before the token value.
 
+**Note:** The token expires after 3600 seconds (1 hour).  
+Once expired, you must log in again to get a fresh token and update the request header with the new value.
 
 ## Resources
 
