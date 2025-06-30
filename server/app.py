@@ -3,22 +3,22 @@ from flask_restful import Api
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
-from server.config import Config
-from server.extensions import db, migrate, jwt
+from config import Config
+from models.extensions import db, migrate, jwt
 
-from server.models.user import User
-from server.models.guest import Guest
-from server.models.episode import Episode
-from server.models.appearance import Appearance
+from models.user import User
+from models.guest import Guest
+from models.episode import Episode
+from models.appearance import Appearance
 
-from server.controllers.auth_controller import auth_bp
-from server.controllers.guest_controller import guest_bp
-from server.controllers.episode_controller import episode_bp
-from server.controllers.appearance_controller import appearance_bp
+from controllers.auth_controller import auth_bp
+from controllers.guest_controller import guest_bp
+from controllers.episode_controller import episode_bp
+from controllers.appearance_controller import appearance_bp
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object("server.config.Config")
+    app.config.from_object("config.Config")
     
     db.init_app(app)
     migrate.init_app(app, db)

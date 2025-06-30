@@ -2,7 +2,7 @@ from sqlalchemy.orm import validates
 from sqlalchemy import CheckConstraint
 from sqlalchemy_serializer import SerializerMixin
 
-from server.extensions import db
+from extensions import db
 
 class Appearance(db.Model, SerializerMixin):
     __tablename__ = "appearances"

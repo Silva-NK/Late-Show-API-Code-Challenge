@@ -1,6 +1,6 @@
 from sqlalchemy_serializer import SerializerMixin
 
-from server.extensions import db
+from extensions import db
 
 class Episode(db.Model, SerializerMixin):
     __tablename__ = "episodes"

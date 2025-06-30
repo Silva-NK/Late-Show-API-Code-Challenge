@@ -2,11 +2,11 @@ from flask import Blueprint, request
 from flask_restful import Api, Resource
 from flask_jwt_extended import jwt_required
 
-from server.extensions import db
+from models.extensions import db
 
-from server.models.guest import Guest
-from server.models.episode import Episode
-from server.models.appearance import Appearance
+from models.guest import Guest
+from models.episode import Episode
+from models.appearance import Appearance
 
 appearance_bp = Blueprint("appearance", __name__)
 appearance_api = Api(appearance_bp)

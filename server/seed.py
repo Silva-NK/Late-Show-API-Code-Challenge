@@ -1,13 +1,13 @@
 from datetime import date
 
-from server.extensions import db
+from models.extensions import db
 
-from server.app import create_app
+from app import create_app
 
-from server.models.user import User
-from server.models.guest import Guest
-from server.models.episode import Episode
-from server.models.appearance import Appearance
+from models.user import User
+from models.guest import Guest
+from models.episode import Episode
+from models.appearance import Appearance
 
 app = create_app()
 
