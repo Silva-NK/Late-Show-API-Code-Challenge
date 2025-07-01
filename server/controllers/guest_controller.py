@@ -1,9 +1,9 @@
 from flask_restful import Api, Resource
 from flask import Blueprint, jsonify, make_response
 
-from models.extensions import db
+from ..models.extensions import db
 
-from models.guest import Guest
+from ..models.guest import Guest
 
 guest_bp = Blueprint("guests", __name__)
 guest_api = Api(guest_bp)

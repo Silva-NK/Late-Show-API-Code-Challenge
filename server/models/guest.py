@@ -1,6 +1,6 @@
 from sqlalchemy_serializer import SerializerMixin
 
-from extensions import db
+from .extensions import db
 
 class Guest(db.Model, SerializerMixin):
     __tablename__ = "guests"

@@ -2,9 +2,9 @@ from flask import Blueprint, request
 from flask_restful import Api, Resource
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 
-from models.extensions import db
+from ..models.extensions import db
 
-from models.user import User
+from ..models.user import User
 
 auth_bp = Blueprint("auth", __name__)
 auth_api = Api(auth_bp)

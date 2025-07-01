@@ -1,24 +1,34 @@
+import os
+
 from flask import Flask
 from flask_restful import Api
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
-from config import Config
-from models.extensions import db, migrate, jwt
+from .models.extensions import db, migrate, jwt
 
-from models.user import User
-from models.guest import Guest
-from models.episode import Episode
-from models.appearance import Appearance
+from .models.user import User
+from .models.guest import Guest
+from .models.episode import Episode
+from .models.appearance import Appearance
 
-from controllers.auth_controller import auth_bp
-from controllers.guest_controller import guest_bp
-from controllers.episode_controller import episode_bp
-from controllers.appearance_controller import appearance_bp
+from .controllers.auth_controller import auth_bp
+from .controllers.guest_controller import guest_bp
+from .controllers.episode_controller import episode_bp
+from .controllers.appearance_controller import appearance_bp
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object("config.Config")
+
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['JSON_COMPACT'] = False
+    app.config['JWT_SECRET_KEY'] = os.getenv("JWT_SECRET_KEY")
+    app.config['JWT_ACCESS_TOKEN_EXPIRES'] = int(os.getenv("JWT_ACCESS_TOKEN_EXPIRES", 3600))
     
     db.init_app(app)
     migrate.init_app(app, db)
